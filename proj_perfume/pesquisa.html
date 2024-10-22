@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados da Pesquisa</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Loja de Perfumes - Resultados da Pesquisa</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre Nós</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <div class="container">
+            <h2>Resultados para: <span id="query"></span></h2>
+            <div id="resultados"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Loja de Perfumes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Obtém o parâmetro da query string (a pesquisa realizada)
+        const params = new URLSearchParams(window.location.search);
+        const searchQuery = params.get('search');
+
+        // Exibe o termo pesquisado
+        document.getElementById('query').textContent = searchQuery;
+
+        // Simulação de uma lista de produtos para demonstrar a pesquisa
+        const produtos = [
+            { nome: "Perfume Amadeirado", categoria: "Amadeirado" },
+            { nome: "Perfume Floral", categoria: "Floral" },
+            { nome: "Perfume Frutado", categoria: "Frutado" },
+            { nome: "Perfume Cítrico", categoria: "Cítrico" },
+            { nome: "Perfume Oriental", categoria: "Oriental" },
+            { nome: "Perfume Especiado", categoria: "Especiado" }
+        ];
+
+        // Filtra os produtos com base na busca do usuário
+        const resultados = produtos.filter(produto => 
+            produto.nome.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+
+        // Exibe os resultados
+        const resultadosDiv = document.getElementById('resultados');
+        if (resultados.length > 0) {
+            resultados.forEach(produto => {
+                const item = document.createElement('p');
+                item.textContent = produto.nome + " - " + produto.categoria;
+                resultadosDiv.appendChild(item);
+            });
+        } else {
+            resultadosDiv.textContent = "Nenhum produto encontrado.";
+        }
+    </script>
+</body>
+</html>

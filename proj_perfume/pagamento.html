@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Página de Pagamento - Loja de Perfumes</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Página de Pagamento</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Início</a></li>
+                    <li><a href="produtos.html">Produtos</a></li>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="contato.html">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="pagamento">
+        <div class="container">
+            <h2>Resumo do Pedido</h2>
+            <div id="resumo">
+                <p>Produto: <span id="produto"></span></p>
+                <p>Preço: R$<span id="preco"></span></p>
+            </div>
+            <h3>Formas de Pagamento</h3>
+            <form action="#" method="POST">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" name="nome" required>
+                
+                <label for="cartao">Número do Cartão:</label>
+                <input type="text" id="cartao" name="cartao" required>
+                
+                <label for="validade">Validade:</label>
+                <input type="text" id="validade" name="validade" required placeholder="MM/AA">
+                
+                <label for="cvv">CVV:</label>
+                <input type="text" id="cvv" name="cvv" required>
+                
+                <button type="submit">Finalizar Compra</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Loja de Perfumes. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Captura os parâmetros da URL
+        const params = new URLSearchParams(window.location.search);
+        const produto = params.get('produto');
+        const preco = params.get('preco');
+
+        // Atualiza os elementos no resumo do pedido
+        document.getElementById('produto').textContent = produto;
+        document.getElementById('preco').textContent = preco;
+    </script>
+</body>
+</html>
