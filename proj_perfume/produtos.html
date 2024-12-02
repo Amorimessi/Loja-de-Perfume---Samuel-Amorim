@@ -7,19 +7,34 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <div class="container">
-            <h1>Loja de Perfumes</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Início</a></li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="sobre.html">Sobre</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+    <header class="bg-primary text-white py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <h1 class="mb-0">Loja de Perfumes</h1>
+            <!-- Barra de navegação com Bootstrap -->
+            <nav class="d-flex align-items-center">
+                <ul class="nav mb-0">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link text-white">Início</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="produtos.html" class="nav-link text-white">Produtos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="sobre.html" class="nav-link text-white">Sobre Nós</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="contato.html" class="nav-link text-white">Contato</a>
+                    </li>
                 </ul>
+                <!-- Barra de Busca -->
+                <form class="d-flex ms-3">
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Buscar">
+                    <button class="btn btn-outline-light" type="submit">Buscar</button>
+                </form>
             </nav>
         </div>
     </header>
+    
 
     <section class="produtos">
         <div class="container">
